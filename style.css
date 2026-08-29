@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #090a0f;
+    color: #ffffff;
+    min-height: 100vh;
+    min-height: 100dvh; /* Mendukung dynamic viewport height pada HP */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 480px;
+    background: linear-gradient(145deg, rgba(30, 32, 47, 0.9), rgba(20, 22, 33, 0.95));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header-title {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f1f5f9;
+}
+
+.header-title i {
+    color: #38bdf8;
+}
+
+.status-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.status-badge.connected {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border-color: rgba(52, 211, 153, 0.3);
+}
+
+/* Grids */
+.sensor-grid, .control-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.sensor-grid {
+    margin-bottom: 16px;
+}
+
+/* Sensor Cards */
+.sensor-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sensor-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.temp-icon { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
+.hum-icon { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+
+.sensor-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.sensor-label {
+    font-size: 0.68rem;
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sensor-value {
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+    font-weight: 800;
+    color: #f8fafc;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+/* Control Buttons */
+.btn-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    outline: none;
+}
+
+.btn-card:active {
+    transform: scale(0.96);
+}
+
+.btn-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.btn-title {
+    font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.btn-status {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #64748b;
+}
+
+/* State Menyalas (Glow Effects) */
+.btn-card.active-lamp1 {
+    border-color: rgba(251, 191, 36, 0.5);
+    background: rgba(251, 191, 36, 0.05);
+}
+.btn-card.active-lamp1 .btn-icon {
+    background: #fbbf24;
+    color: #0f172a;
+    box-shadow: 0 0 18px rgba(251, 191, 36, 0.7);
+}
+
+.btn-card.active-lamp2 {
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(168, 85, 247, 0.05);
+}
+.btn-card.active-lamp2 .btn-icon {
+    background: #c084fc;
+    color: #0f172a;
+    box-shadow: 0 0 18px rgba(192, 132, 252, 0.7);
+}
+
+.btn-card.active-lamp1 .btn-status,
+.btn-card.active-lamp2 .btn-status {
+    color: #f1f5f9;
+}
+
+/* Responsif untuk Layar Sangat Kecil (Layar HP di bawah 360px) */
+@media (max-width: 360px) {
+    .sensor-grid, .control-grid {
+        grid-template-columns: 1fr;
+    }
+}
