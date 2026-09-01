@@ -1,18 +1,13 @@
-// --- KONFIGURASI BROKER HIVEMQ ---
 const MQTT_HOST = "0934d4c052d7448db90141635738c6c1.s1.eu.hivemq.cloud";
-const MQTT_PORT = 8884; // Port Websocket Secure (WSS) untuk Browser
-const MQTT_USER = "ahmad";
+const MQTT_PORT = 8884;const MQTT_USER = "ahmad";
 const MQTT_PASS = "Ahmad12.";
 
-// State Status Lampu
 let stateLampu1 = false;
 let stateLampu2 = false;
 
-// Client ID Unik per Device Browser
 const clientId = "WebClient_" + Math.random().toString(16).substr(2, 8);
 const client = new Paho.MQTT.Client(MQTT_HOST, MQTT_PORT, clientId);
 
-// Event Listeners
 client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
 
