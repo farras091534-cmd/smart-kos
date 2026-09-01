@@ -16,10 +16,9 @@ body {
     padding: 16px;
 }
 
-/* Container dibuat lebih lebar & responsif di HP */
 .dashboard-container {
     width: 100%;
-    max-width: 500px; /* Lebar maksimal diperbesar */
+    max-width: 500px;
     background: linear-gradient(145deg, rgba(30, 32, 47, 0.9), rgba(20, 22, 33, 0.95));
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -29,7 +28,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Header Section */
 .header {
     display: flex;
     justify-content: space-between;
@@ -71,7 +69,6 @@ body {
     border-color: rgba(52, 211, 153, 0.3);
 }
 
-/* Grids Layout */
 .sensor-grid, .control-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -82,7 +79,6 @@ body {
     margin-bottom: 16px;
 }
 
-/* Sensor Cards */
 .sensor-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -174,7 +170,6 @@ body {
     color: #64748b;
 }
 
-/* State Menyalas (Glow Effects) */
 .btn-card.active-lamp1 {
     border-color: rgba(251, 191, 36, 0.5);
     background: rgba(251, 191, 36, 0.06);
@@ -200,7 +195,6 @@ body {
     color: #f1f5f9;
 }
 
-/* Penyesuaian HP Layar Kecil */
 @media (max-width: 380px) {
     .dashboard-container {
         padding: 18px 14px;
