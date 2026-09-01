@@ -11,7 +11,6 @@ const client = new Paho.MQTT.Client(MQTT_HOST, MQTT_PORT, clientId);
 client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
 
-// Inisialisasi Koneksi
 connectBroker();
 
 function connectBroker() {
@@ -29,7 +28,6 @@ function onConnect() {
     document.getElementById("statusBadge").classList.add("connected");
     document.getElementById("statusText").innerText = "ONLINE";
 
-    // Subskripsi Topik Data ESP32
     client.subscribe("suhu");
     client.subscribe("kelembapan");
     client.subscribe("OUTPUT/LED");
@@ -50,7 +48,6 @@ function onConnectionLost(responseObject) {
     }
 }
 
-// Menangani Data Masuk dari ESP32
 function onMessageArrived(message) {
     const topic = message.destinationName;
     const payload = message.payloadString.trim();
@@ -68,7 +65,6 @@ function onMessageArrived(message) {
     }
 }
 
-// Mengirim Perintah Publikasi ke ESP32 saat Tombol Di-klik
 function toggleLampu(lampNum) {
     let topic, payload;
 
@@ -86,7 +82,6 @@ function toggleLampu(lampNum) {
     client.send(message);
 }
 
-// Mengubah Tampilan Tombol secara Visual
 function updateUI(lampNum, isOn) {
     const btn = document.getElementById("btnLampu" + lampNum);
     const txt = document.getElementById("txtLampu" + lampNum);
