@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Room Dashboard</title>
-    <!-- Font & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Style External -->
     <link rel="stylesheet" href="style.css">
-    <!-- Paho MQTT Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
 </head>
 <body>
@@ -27,7 +24,6 @@
             </div>
         </header>
 
-        <!-- Sensor Section -->
         <section class="sensor-grid">
             <div class="sensor-card">
                 <div class="sensor-icon temp-icon">
@@ -50,7 +46,6 @@
             </div>
         </section>
 
-        <!-- Control Section -->
         <section class="control-grid">
             <button id="btnLampu1" class="btn-card" onclick="toggleLampu(1)">
                 <div class="btn-icon">
@@ -70,7 +65,6 @@
         </section>
     </main>
 
-    <!-- Script External -->
     <script src="script.js"></script>
 </body>
 </html>
