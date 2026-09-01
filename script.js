@@ -37,7 +37,7 @@ function onConnect() {
 function onFailure(response) {
     document.getElementById("statusBadge").classList.remove("connected");
     document.getElementById("statusText").innerText = "FAILED";
-    setTimeout(connectBroker, 5000); // Percobaan Reconnect Otomatis
+    setTimeout(connectBroker, 5000);
 }
 
 function onConnectionLost(responseObject) {
