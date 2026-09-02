@@ -1,8 +1,8 @@
-const MQTT_HOST = "0934d4c052d7448db90141635738c6c1.s1.eu.hivemq.cloud";
-const MQTT_PORT = 8884;const MQTT_USER = "ahmad";
-const MQTT_PASS = "Ahmad12.";
+const MQTT_HOST = "0934d4c052d7448db90141635738c6c1.s1.eu.hivemq.cloud"; //broker yang akan di tuju//
+const MQTT_PORT = 8884;const MQTT_USER = "ahmad"; // broker user //
+const MQTT_PASS = "Ahmad12."; // broker paassword //
 
-let stateLampu1 = false;
+let stateLampu1 = false;  // force lampu mati saat hidup pertama kali //
 let stateLampu2 = false;
 
 const clientId = "WebClient_" + Math.random().toString(16).substr(2, 8);
@@ -28,7 +28,7 @@ function onConnect() {
     document.getElementById("statusBadge").classList.add("connected");
     document.getElementById("statusText").innerText = "ONLINE";
 
-    client.subscribe("suhu");
+    client.subscribe("suhu");       //topic yang akan dituju//
     client.subscribe("kelembapan");
     client.subscribe("OUTPUT/LED");
     client.subscribe("OUTPUT/LED1");
